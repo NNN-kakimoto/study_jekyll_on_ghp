@@ -1,3 +1,7 @@
+---
+title: easy_mode
+permalink: /easy_mode
+---
 # 1. サクッとページ公開してドヤりたい場合 
 ドヤりたいときです 
 

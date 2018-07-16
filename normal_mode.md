@@ -1,3 +1,8 @@
+--- 
+title: normal_mode
+permalink: /normal_mode
+---
+
 # 2.割としっかり目にCSSとか当てて公開したい場合
 ドヤりたいときです
 
