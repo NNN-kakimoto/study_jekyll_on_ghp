@@ -23,8 +23,9 @@
 [こちら](https://nnn-kakimoto.github.io/study_jekyll_on_ghp/easy_mode)
 
 ## 2. 割としっかり目にCSSとか当てて公開したい場合
-[まだ用意してない]()
+[こちら](https://nnn-kakimoto.github.io/study_jekyll_on_ghp/normal_mode)
 
+どちらのページもクソ長いです。心して読んでください。
 
 ---
 １とか２とか書いてパターン分けしたのはいいんですが、最初１で作ったサイトを2に移行すること考えたら新しくリポジトリ作ってmdファイルコピペしたほうが早いことに気づきました。 
