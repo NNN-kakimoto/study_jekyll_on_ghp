@@ -23,7 +23,7 @@
 [こちら](https://nnn-kakimoto.github.io/study_jekyll_on_ghp/easy_mode)
 
 ## 2. 割としっかり目にCSSとか当てて公開したい場合
-[こちら](https://nnn-kakimoto.github.io/study_jekyll_on_ghp/normal_mode)
+[こちら]()
 
 どちらのページもクソ長いです。心して読んでください。
 
