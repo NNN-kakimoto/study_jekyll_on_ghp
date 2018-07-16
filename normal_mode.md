@@ -168,7 +168,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 </body>
 </html>
 ```
-`{{ content }}`の部分にマークダウンが呼び出されます。
+`content`の部分にマークダウンが呼び出されます。
 
 で、呼び出し元のマークダウンファイル`index.md`を加筆します。
 
@@ -182,12 +182,15 @@ permalink: /
 `---`の存在が重要です。これで囲った範囲がページの設定項目となります。
 
 - layout
+
 	→`_layouts`ディレクトリの中にある同名のhtmlファイルを参照します。ちなみにデフォルトがpageだったりします。CSSが元からあたってるのでお試しにはちょうど良いです。
 
 - title
+
 	→その名の通りページタイトルになります。今は反映してないので関係ないですが、今後HTMLヘッド部分のtitleに反映させたり、ページヘッダーに呼び出したりできます。
 
 - permalink
+
 	→今は関係ないです。ここに指定したパスでアクセスできるようになります。書かない場合はマークダウンファイルの名前に設定されます。
 
 
@@ -209,18 +212,23 @@ permalink: /
 <html lang="ja">
 <head>
 	<meta charset="utf-8">
-	<title>{{ include.param }} | {{ site.title }}</title>
+	<title>{ { include.param } } | { { site.title } }</title>
 </head>
 ```
 `_layouts/index.html`
 ```
-{% include head.html param=page.title %}
+{％ include head.html param=page.title ％}
 <body>
 ・・・
 </html>
 ```
+__上の例ではincludeの文の’%’を全角文字にしています。__(このサイトもjekyllでビルドされている関係で)
 
-各ファイルの、`{{ }}`　←で囲った部分に別の場所で設定した文字列が自動挿入されます。
+__実行する際は’半角で’%を入力してください。__
+
+__それと`include`とか`site`とかの部分も二重中かっこの外側と内側が半角スペースで開いていますが、これもつめて書いてください。
+
+各ファイルの、二重の`{}`　←で囲った部分に別の場所で設定した文字列が自動挿入されます。
 
 また、`_layout/index.html`の{} ←の中に、`head.html`ファイルが読み込まれます。
 
@@ -271,7 +279,7 @@ SCSSはCSSの要コンパイルの完全上位互換といった感じで、使�
 `main.scss`の中身は後ほど自由に変えてもらうとして、仮にこうしておきましょう。うまく行けばページの上部分がグレーに、文字色が白になるはずです。
 ```
 header{
-	background-color: $gray;
+	background-color: gray;
 	color: white;
 }
 ```
@@ -280,16 +288,20 @@ header{
 <html lang="ja">
 <head>
 	<meta charset="utf-8">
-	<title>{{ include.param }} | {{ site.title }}</title>
+	<title>{ { include.param } } | { { site.title } }</title>
 	<style>
-		{% capture styles %}
-			{% include css/main.scss %}
-		{% endcapture %}
-		{{ styles | scssify }}
+		{％ capture styles ％}
+			{％ include css/main.scss ％}
+		{％ endcapture ％}
+		
 	</style>
 </head>
 ```
 `<style>`タグ内が反映箇所です。すべてのページにおいて上の方に展開されるのでスマートじゃない気もしますが、気にする人は自力で改善すると成長できると思います。
+
+__例によって’%’は全角文字で入力しています。実行の際は半角への置き換えをしてください。二重中かっこも同じくです。__
+
+同様の理由で、`endcapture`と`</style>`の間の行に` styles | scssify `という文字列を二重中かっこで囲んで入れてください。これについてはどうやってもエスケープできなかった。
 
 #### 6-5. 画像の表示
 今更言うのも申し訳ないのですが、基本的にjekyllにおいて、ジェネレートされる`_site`ディレクトリ以下は __触ってはいけません__ 。というか、触っても`jekyll serve`のたびに戻されます。
@@ -315,13 +327,13 @@ header{
 ~省略~
 <hrader>
 	<h1>header</h1>
-	<img src="{{ site.baseurl}}/images/top-image.jpg" alt="top-image">
+	<img src="{ { site.baseurl } }/images/top-image.jpg" alt="top-image">
 </header>
 ~省略~
 ```
 のようにします。
 
-注意点は __パスの最初に`{{ site,baseurl }}`を指定すること__ 。これがないとファイルを見つけられずエラーになります。
+注意点は __パスの最初に`{ { site.baseurl } }`を指定すること__ 。これがないとファイルを見つけられずエラーになります。
 
 
 
@@ -330,3 +342,8 @@ header{
 読みながらやったけど動かねぇぞ！みたいなときは自分で調べてください。
 
 嘘です。[僕のTwitter](https://twitter.com/kakimoto_itc)にどうぞ。
+
+#### 追記。
+jekyllの二重中かっこ関連のエスケープまじでめんどかった。
+
+なんで解説する言語つかって公開したんだろうとホンキで思った。
