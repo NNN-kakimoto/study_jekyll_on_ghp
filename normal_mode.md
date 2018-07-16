@@ -160,7 +160,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 		<h1>header</h1>
 	</header>
 	<article>
-		{{ content}}
+		{ { content } }
 	</article>
 	<footer>
 		<h2>footer</h2>
@@ -169,6 +169,8 @@ baseurl: "" # the subpath of your site, e.g. /blog
 </html>
 ```
 `content`の部分にマークダウンが呼び出されます。
+
+__contentを囲っている二重中かっこ同士は、外側と内側を開けずに続けて入力してください。※このページでのエスケープ対策__
 
 で、呼び出し元のマークダウンファイル`index.md`を加筆します。
 
