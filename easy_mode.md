@@ -50,7 +50,7 @@ masterとかはブランチに対応していて、デフォルトのブラン�
 
 ごちゃごちゃ書きましたが、プルダウンリストを切り替えたら横の`Save`ボタンを押します。ページがロードされて一番上にスクロールが戻ったりしますがさっきの`GitHub Pages`のとこの戻ると緑の通知領域に
 ```
-✔ Your site is published at https://<GitHub_ID>/github.io/<リポジトリ名>/
+✔ Your site is published at https://<GitHub_ID>.github.io/<リポジトリ名>/
 ```
 みたいになってるはずです。そこのリンクを踏むと(今のタブで)公開ページに遷移します。 
 
